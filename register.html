@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Cart - E-Book Store</title>
+    <title>Register - E-Book Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -9,15 +9,20 @@
         <a href="index.html" style="margin:0;">E-BOOK STORE</a>
         <div>
             <a href="index.html">Catalog</a>
-            <a href="cart.html">Cart</a>
+            <a href="register.html">Register</a>
         </div>
     </nav>
 
-    <div class="container">
-        <h2>Your Shopping Cart</h2>
+    <div class="container" style="max-width: 400px; margin: auto;">
         <div class="card">
-            <p>You have 0 items in your cart.</p>
-            <a href="index.html"><button style="width: auto; padding: 10px 30px;">Back to Catalog</button></a>
+            <h2>Create Account</h2>
+            <form action="login.html">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="login.html" style="color:blue">Login here</a></p>
         </div>
     </div>
 </body>
