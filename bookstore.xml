@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE bookstore SYSTEM "bookstore.dtd">
+
+<bookstore>
+
+    <book>
+        <title>Software Engineering</title>
+        <author>Ian Sommerville</author>
+        <publisher>Pearson</publisher>
+        <price>650</price>
+        <year>2016</year>
+    </book>
+
+    <book>
+        <title>Clean Code</title>
+        <author>Robert C Martin</author>
+        <publisher>Prentice Hall</publisher>
+        <price>700</price>
+        <year>2008</year>
+    </book>
+
+    <book>
+        <title>Introduction to Algorithms</title>
+        <author>Thomas H Cormen</author>
+        <publisher>MIT Press</publisher>
+        <price>900</price>
+        <year>2009</year>
+    </book>
+
+</bookstore>
