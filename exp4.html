@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather Graph</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:40px;
+}
+
+canvas{
+width:600px;
+height:400px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Weather Information</h2>
+
+<input type="text" id="city" placeholder="Enter City Name">
+<button onclick="getWeather()">Get Weather</button>
+
+<br><br>
+
+<canvas id="weatherChart"></canvas>
+
+<script>
+
+// API key from openweathermap
+const apiKey = "YOUR_API_KEY";
+
+// Arrow function
+const getWeather = async () => {
+
+    const city = document.getElementById("city").value;
+
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+
+    try{
+
+        // Promise using fetch
+        const response = await fetch(url);
+
+        const data = await response.json();
+
+        processWeather(data, displayGraph);
+
+    }
+    catch(error){
+        console.log(error);
+        alert("Error fetching weather data");
+    }
+};
+
+
+// Callback function
+const processWeather = (data, callback) => {
+
+    let temps = [];
+    let times = [];
+
+    // Arrow function with forEach
+    data.list.slice(0,8).forEach(item => {
+
+        temps.push(item.main.temp);
+        times.push(item.dt_txt);
+
+    });
+
+    callback(times, temps);
+};
+
+
+// Function to display graph
+const displayGraph = (labels, temperatures) => {
+
+    const ctx = document.getElementById('weatherChart');
+
+    new Chart(ctx, {
+
+        type: 'line',
+
+        data: {
+
+            labels: labels,
+
+            datasets: [{
+                label: 'Temperature (°C)',
+                data: temperatures,
+                borderWidth: 2
+            }]
+        },
+
+        options: {
+            responsive:true
+        }
+
+    });
+};
+
+</script>
+
+</body>
+</html>
