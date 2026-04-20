@@ -1,0 +1,14 @@
+<input id="number1" type="number">
+<input id="number2" type="number">
+<button onclick="add()">Add</button>
+<div id="result_id"></div>
+<script>
+function add(){
+    const addition = (num1,num2) => num1+num2;
+    let number1 = Number(document.getElementById("number1").value);
+    let number2 = Number(document.getElementById("number2").value);
+    const result = addition(number1,number2);
+    document.getElementById("result_id").innerHTML =
+    `The sum of ${number1} and ${number2} is ${result}`;
+}
+</script>
